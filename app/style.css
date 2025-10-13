@@ -1,0 +1,30 @@
+/* 🌈 Streamlit Custom Styles */
+h1 {
+    text-align: center;
+    color: #4b0082 !important;
+    font-weight: 700;
+}
+
+.stButton>button {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+}
+
+[data-testid="stSidebar"] {
+    background-color: #f8f9fc !important;
+    padding: 25px 15px;
+}
+
+div.block-container {
+    padding-top: 2rem;
+}
