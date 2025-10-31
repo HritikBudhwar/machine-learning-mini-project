@@ -4,9 +4,6 @@ import numpy as np
 import pandas as pd
 from utils import get_model_accuracy, get_resource_links, get_confidence_score
 
-# -------------------------------
-# 🎯 App Configuration
-# -------------------------------
 st.set_page_config(
     page_title="Parkinson's Disease Prediction",
     page_icon="🧠",
