@@ -30,10 +30,7 @@ input_data = {
     'PPE': [0.3]
 }
 
-# Convert to DataFrame
 sample_df = pd.DataFrame(input_data)
-
-# Predict
 prediction = model.predict(sample_df)[0]
 
 if prediction == 1:

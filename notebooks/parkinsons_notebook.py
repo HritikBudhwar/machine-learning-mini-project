@@ -4,7 +4,7 @@ import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv("/data/parkinsons.data")
-print("✅ Dataset loaded successfully!\n")
+print(" Dataset loaded successfully!\n")
 
 print("Dataset shape:", df.shape)
 print("\nColumns:\n", df.columns.tolist())
@@ -31,5 +31,5 @@ y = df['status']
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-print("\n✅ Features scaled successfully!")
+print("\n Features scaled successfully!")
 print("Scaled feature shape:", X_scaled.shape)
