@@ -1,1 +1,38 @@
-path/to/large-file
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large files and data
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.data
+*.csv
+
+# Temporary files
+*.tmp
+*.log

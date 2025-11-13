@@ -4,9 +4,6 @@ import numpy as np
 import pandas as pd
 from utils import get_model_accuracy, get_resource_links, get_confidence_score
 
-# -------------------------------
-# 🎯 App Configuration
-# -------------------------------
 st.set_page_config(
     page_title="Parkinson's Disease Prediction",
     page_icon="🧠",
@@ -14,24 +11,15 @@ st.set_page_config(
     initial_sidebar_state="expanded"
     
 )
-
-# -------------------------------
-# 🎨 Load Custom CSS
-# -------------------------------
 try:
     with open("app/style.css", "r", encoding="utf-8") as css:
         st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 except FileNotFoundError:
     st.warning("⚠️ style.css not found — using default Streamlit style.")
 
-# -------------------------------
-# 🧠 Load Model
-# -------------------------------
 model = joblib.load("models/parkinsons_best_model.pkl")
 
-# -------------------------------
-# 🏷️ Sidebar
-# -------------------------------
+
 st.sidebar.title("🧩 Model Information")
 st.sidebar.markdown(f"**Accuracy:** {get_model_accuracy()}%")
 st.sidebar.markdown("**Algorithm Used:** Logistic Regression / Random Forest Hybrid")
@@ -43,18 +31,12 @@ for name, link in get_resource_links().items():
 st.sidebar.markdown("---")
 st.sidebar.caption("Developed with ❤️ using Streamlit and Scikit-Learn")
 
-# -------------------------------
-# 🏷️ Main Title
-# -------------------------------
 st.title("🧠 Parkinson's Disease Prediction App")
 st.write("""
 Enter your voice measurement features below to estimate the likelihood of Parkinson’s Disease.  
 The model will predict whether the pattern is *Healthy* or *Parkinsonian* and show a confidence score.
 """)
 
-# -------------------------------
-# 🌙 Dark Mode Toggle
-# -------------------------------
 dark_mode = st.toggle("🌙 Enable Dark Mode")
 
 if dark_mode:
@@ -68,10 +50,6 @@ if dark_mode:
         """,
         unsafe_allow_html=True
     )
-
-# -------------------------------
-# 📄 Load Healthy Mean Values
-# -------------------------------
 try:
     healthy_mean = pd.read_csv("data/healthy_mean.csv", index_col=0).squeeze("columns").to_dict()
     st.sidebar.success("✅ Loaded Healthy Mean defaults from CSV")
@@ -89,9 +67,6 @@ except Exception as e:
 
 st.sidebar.info("Using Healthy Mean values as default for all input fields.")
 
-# -------------------------------
-# 🧩 Input Features
-# -------------------------------
 features = [
     "MDVP:Fo(Hz)", "MDVP:Fhi(Hz)", "MDVP:Flo(Hz)", "MDVP:Jitter(%)",
     "MDVP:Jitter(Abs)", "MDVP:RAP", "MDVP:PPQ", "Jitter:DDP",
@@ -126,9 +101,6 @@ for i, feature in enumerate(features):
         )
         inputs.append(value)
 
-# -------------------------------
-# 🔮 Prediction
-# -------------------------------
 if st.button("🔍 Predict Parkinson’s Status", use_container_width=True):
     input_array = np.array(inputs).reshape(1, -1)
     prediction = model.predict(input_array)[0]
@@ -143,7 +115,6 @@ if st.button("🔍 Predict Parkinson’s Status", use_container_width=True):
         st.success(f"✅ Healthy — Model Confidence: **{confidence}%**")
         st.progress(proba[0])
 
-    # 📊 Probability Chart
     st.markdown("### 📊 Prediction Probabilities")
     chart_data = pd.DataFrame({
         "Status": ["Healthy", "Parkinson’s"],
