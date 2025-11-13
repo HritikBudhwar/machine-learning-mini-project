@@ -32,11 +32,11 @@ A comprehensive machine learning project for detecting Parkinson's Disease using
 Parkinson's Disease (PD) is a neurodegenerative disorder that affects motor control and is often detected through voice and speech patterns. This project leverages machine learning to classify whether voice measurements indicate healthy individuals or those with Parkinson's Disease.
 
 **Key Highlights:**
-- ✅ Automated feature extraction from voice data
-- ✅ Multiple machine learning algorithms (Logistic Regression, Random Forest, XGBoost)
-- ✅ Interactive prediction interface with confidence scores
-- ✅ SHAP explainability for model interpretability
-- ✅ Comprehensive data analysis and visualization
+- Automated feature extraction from voice data
+- Multiple machine learning algorithms (Logistic Regression, Random Forest, XGBoost)
+- Interactive prediction interface with confidence scores
+- SHAP explainability for model interpretability
+- Comprehensive data analysis and visualization
 
 ---
 
